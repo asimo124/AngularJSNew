@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container" style="margin-top: 30px;">
+    <div ng-controller="mainController">
+
+        <form name="myForm">
+            <label>
+                Enter text:
+                <input type="email" ng-model="field" name="myField" required maxlength="15"/>
+            </label>
+            <div ng-messages="myForm.myField.$error" role="alert">
+                <div ng-message="required" class="alert alert-danger">Please enter a value for this field.</div>
+                <div ng-message="email" class="alert alert-danger">This field must be a valid email address.</div>
+                <div ng-message="maxlength" class="alert alert-danger">This field can be at most 15 characters long.</div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-messages.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-resource.min.js"></script>
+<script src="app.js">
+
+</script>
+</html>
