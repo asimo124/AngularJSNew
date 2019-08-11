@@ -41,11 +41,24 @@ myApp.controller('mainController', ['$scope', '$filter', '$timeout', '$http', fu
 	/*/
 	$scope.characters = 5;
 	$scope.twitter_handle = "";
-	console.log($scope.rules);
 	$scope.lcase_word = function(str) {
 		if (!str)
 			return null;
 		return $filter('lowercase')(str);
+	};
+
+	$scope.new_rule = "";
+	$scope.addRule = function(e) {
+
+		e.preventDefault();
+		$http({
+			method: 'GET',
+			url: 'http://alexhawley-api.info/pills/add-twitter-rule?rule_name=' + $scope.new_rule
+		}).then(function successCallback(response) {
+			$scope.rules = response.data.rules;
+		}, function errorCallback(response) {
+			console.log(response);
+		});
 	};
 
 	$http({
@@ -57,19 +70,6 @@ myApp.controller('mainController', ['$scope', '$filter', '$timeout', '$http', fu
 	}, function errorCallback(response) {
 		console.log(response);
 	});
-
-
-	$scope.alertClick = function() {
-		alert('Clicked');
-	};
-	$scope.name = 'John Doe';
-	//*/
-
-
-
-
-
-
 
 }]);
 

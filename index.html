@@ -29,8 +29,15 @@
         <h1>twitter.com/{{ lcase_word(twitter_handle) }}</h1>
         <h3>Rules</h3>
         <ul>
-            <li ng-repeat="rule in rules">{{ rule.rulename }}</li>
+            <li ng-repeat="rule in rules">{{ rule.rule_name }}</li>
         </ul>
+
+        <div style="clear: both; height: 12px"></div>
+
+        <button ng-click="testRule()" >Test Click</button>
+
+        Add Rule: <input type="text" ng-model="new_rule" value="" />&nbsp;<a href="#" ng-click="addRule($event)" class="btn btn-primary">Submit</a>
+
 
 <!--        <input type="button" value="Click me" ng-click="alertClick()">-->
 <!--        <div ng-cloak>{{ name }}</div>-->
